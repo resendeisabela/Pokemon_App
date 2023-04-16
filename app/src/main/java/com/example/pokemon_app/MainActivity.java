@@ -1,33 +1,31 @@
 package com.example.pokemon_app;
 
 import android.os.Bundle;
-
-import com.example.pokemon_app.databinding.ActivityMainBinding;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.pokemon_app.databinding.ActivityMainBinding;
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private View sview;
     private Spinner spinner;
     private TextView txt;
-    private Button btn_mudar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +35,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         sview = findViewById(R.id.view1);
         spinner = findViewById(R.id.spinner);
-        txt= sview.findViewById(R.id.textView2);
-        btn_mudar = findViewById(R.id.button_change);
+        txt = findViewById(R.id.textView2);
 
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setSelection(0);
 
         setSupportActionBar(binding.toolbar);
 
@@ -57,29 +56,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_mudar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                int item = spinner.getSelectedItemPosition();
-                switch (item) {
-                    case 24:
-                        txt.setTextSize(24);
-                        break;
-                        case 26:
-                            txt.setTextSize(26);
-                            break;
-                            case 28:
-                                txt.setTextSize(28);
-                                break;
-                                case 30:
-                                    txt.setTextSize(30);
-                                    break;
-                                                 }
-                                             }
-                                         }
-        ) ;}
+        spinner.setOnItemSelectedListener(this);
+    }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String selectedItem = parent.getItemAtPosition(position).toString();
+        if (position!=0) {
+            int fontSize = Integer.parseInt(selectedItem);
+            updateFontSize(fontSize);
+        }
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Método necessário para a implementação da interface AdapterView.OnItemSelectedListener
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updateFontSize(int size) {
+        txt.setTextSize(size);
     }
 
     @Override

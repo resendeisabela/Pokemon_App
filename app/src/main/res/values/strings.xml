@@ -11,10 +11,11 @@
     <string name="dark_mode">Dark Mode</string>
 
     <string-array name="tamanhos">
-        <item>24</item>
-        <item>26</item>
-        <item>28</item>
-        <item>30</item>
+        <item>Selecione o tamanho da fonte</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
 
     </string-array>
 
