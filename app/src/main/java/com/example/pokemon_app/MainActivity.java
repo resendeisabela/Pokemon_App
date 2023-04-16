@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,6 +28,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner spinner;
     private TextView txt;
 
+    private void setAllTextSizes(int size) {
+        setViewTextSizes(findViewById(android.R.id.content), size);
+    }
+
+    private void setViewTextSizes(View view, int size) {
+        if (view instanceof TextView) {
+            ((TextView) view).setTextSize(size);
+        } else if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                setViewTextSizes(viewGroup.getChildAt(i), size);
+            }
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(binding.getRoot());
         sview = findViewById(R.id.view1);
         spinner = findViewById(R.id.spinner);
-        txt = findViewById(R.id.textView2);
+
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -64,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String selectedItem = parent.getItemAtPosition(position).toString();
         if (position!=0) {
             int fontSize = Integer.parseInt(selectedItem);
-            updateFontSize(fontSize);
+            setAllTextSizes(fontSize);
         }
     }
 
@@ -98,9 +116,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateFontSize(int size) {
-        txt.setTextSize(size);
-    }
 
     @Override
     public boolean onSupportNavigateUp() {

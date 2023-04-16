@@ -30,12 +30,12 @@
         layout="@layout/content_main"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -47,26 +47,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_home_24" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="324dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="344dp"
-        android:entries="@array/tamanhos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appBarLayout"
-        android:prompt="@string/spinner_title" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="156dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="192dp"
-        android:text="AAAAAAAAAAAA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appBarLayout" />
+<!--    <Spinner-->
+<!--        android:id="@+id/spinner"-->
+<!--        android:layout_width="326dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="68dp"-->
+<!--        android:entries="@array/tamanhos"-->
+<!--        android:prompt="@string/spinner_title"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/appBarLayout" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
