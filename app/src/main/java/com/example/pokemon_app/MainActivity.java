@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ActivityMainBinding binding;
     private View sview;
     private Spinner spinner;
-    private TextView txt;
+    private ListView listView;
 
     private void setAllTextSizes(int size) {
         setViewTextSizes(findViewById(android.R.id.content), size);
@@ -53,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         sview = findViewById(R.id.view1);
         spinner = findViewById(R.id.spinner);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, R.layout.spinner_text);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
 
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (id == R.id.op_darkmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
+            listView.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
             return true;
         }
 
