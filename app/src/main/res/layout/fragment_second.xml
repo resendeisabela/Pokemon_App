@@ -1,66 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".SecondFragment">-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textview_second"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/button_second"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/button_second"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/previous"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/textview_second" />-->
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#ffffff"
-    tools:context=".SecondFragment">>
+    android:layout_centerVertical="true"
+    tools:context=".SecondFragment">
 
     <View
         android:id="@+id/blue_rectangle"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="16dp"
         android:background="#4285f4"
         android:layout_weight="1"/>
 
     <ImageView
-        android:id="@+id/pokemon_image"
+        android:id="@+id/pokemonImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-50dp"
         android:layout_alignTop="@id/blue_rectangle"
-        android:src="@drawable/bulbasaur"/>
+        />
 
     <TextView
-        android:id="@+id/pokemon_name"
+        android:id="@+id/pokemonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:layout_alignTop="@id/blue_rectangle"
-        android:text="Nome do Pokemon"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="20sp" />
 
 </RelativeLayout>

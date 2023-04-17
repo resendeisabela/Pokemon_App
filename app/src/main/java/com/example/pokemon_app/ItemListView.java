@@ -23,8 +23,5 @@ public class ItemListView {
     public void setImage(int image) {
         this.image = image;
     }
-
-
-
 }
 

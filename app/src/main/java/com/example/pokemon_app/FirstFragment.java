@@ -36,14 +36,6 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(FirstFragment.this)
-//                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-//            }
-//        });
-
         itens.add(0, new ItemListView("Bulbassauro", R.drawable.bulbasaur));
         itens.add(1, new ItemListView("Butterfree", R.drawable.butterfree));
         itens.add(2, new ItemListView("Charmander", R.drawable.charmander));
@@ -57,30 +49,17 @@ public class FirstFragment extends Fragment {
         binding.listImagens.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-//                switch (position){
-//                    case 0:
-//                        itens.remove(0);
-//                        break;
-//                    case 1:
-//                        itens.remove(1);
-//                        break;
-//                    case 2:
-//                        itens.remove(2);
-//                        break;
-//                }
-//                binding.listImagens.setAdapter(new AdapterListView(getContext(),itens));
+                // Get the selected item from the list
+                ItemListView selectedItem = itens.get(position);
+
+                // Create a bundle to pass the data to the second fragment
                 Bundle bundle = new Bundle();
-                ItemListView item = itens.get(position);
-                bundle.putString("name", item.getName());
-                bundle.putInt("image", item.getImage());
+                bundle.putInt("image", selectedItem.getImage());
+                bundle.putString("name", selectedItem.getName());
 
-                // Crie uma instância do Fragment PokemonFragment e defina o Bundle como argumento
-//                SecondFragment secondFragment = new SecondFragment();
-//                secondFragment.setArguments(bundle);
-
-                // Use o NavController para navegar para o Fragment PokemonFragment
+                // Navigate to the second fragment
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
             }
         });
 

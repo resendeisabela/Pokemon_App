@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:rowCount="2"
+    android:columnCount="1"
     tools:context=".FirstFragment">
+    <Button
+        android:id="@+id/button_goto_third_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Third Fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listImagens" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="326dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:entries="@array/tamanhos"
-        android:prompt="@string/spinner_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:prompt="@string/spinner_title" />
 
     <ListView
         android:id="@+id/listImagens"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:padding="16dp"
-        android:numColumns="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner" />
+        android:layout_rowWeight="8"
+        android:layout_columnWeight="1" />
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</GridLayout>
