@@ -1,6 +1,8 @@
 package com.example.pokemon_app;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -29,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private View sview;
     private Spinner spinner;
     private ListView listView;
-
     private void setAllTextSizes(int size) {
         setViewTextSizes(findViewById(android.R.id.content), size);
     }
@@ -103,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (id == R.id.op_lightmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.white));
+            listView.setBackgroundColor(getResources().getColor(R.color.white));
             return true;
         }
 
