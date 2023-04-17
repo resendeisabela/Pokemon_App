@@ -1,5 +1,6 @@
 package com.example.pokemon_app;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -24,7 +25,11 @@ public class ThirdFragment extends Fragment {
     ) {
         binding = FragmentThirdBinding.inflate(inflater,
                 container, false);
-
+        return binding.getRoot();
+    }
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Context context = getContext();
         ArrayAdapter adapter=ArrayAdapter.createFromResource(getContext(),
                 R.array.pokemons, android.R.layout.simple_spinner_item);
         binding.spinnerPokemons.setAdapter(adapter);
@@ -37,28 +42,28 @@ public class ThirdFragment extends Fragment {
                 }
                 switch (position){
                     case 1:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.bulbasaur);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.bulbasaur);
                         break;
                     case 2:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.butterfree);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.butterfree);
                         break;
                     case 3:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.charmander);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.charmander);
                         break;
                     case 4:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.cyndaquil);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.cyndaquil);
                         break;
                     case 5:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.eevee);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.eevee);
                         break;
                     case 6:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.pikachu);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.pikachu);
                         break;
                     case 7:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.snorlax);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.snorlax);
                         break;
                     case 8:
-                        mediaPlayer=MediaPlayer.create(getContext(),R.raw.squirtle);
+                        mediaPlayer=MediaPlayer.create(context,R.raw.squirtle);
                         break;
                 }
                 if(mediaPlayer!=null){
@@ -72,11 +77,6 @@ public class ThirdFragment extends Fragment {
                 }
             }
         });
-
-        return binding.getRoot();
-    }
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
     }
 
