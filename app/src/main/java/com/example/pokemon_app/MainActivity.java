@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(binding.getRoot());
         sview = findViewById(R.id.view1);
         spinner = findViewById(R.id.spinner);
+        listView = findViewById(R.id.listImagens);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, R.layout.spinner_text);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
