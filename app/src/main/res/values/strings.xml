@@ -19,8 +19,24 @@
 
     </string-array>
 
+    <string name="spinner_pokemons_itle">Selecione o som que deseja escutar</string>
+
+    <string-array name="pokemons">
+        <item>Selecione o som que deseja escutar</item>
+        <item>Bulbassauro</item>
+        <item>Butterfree</item>
+        <item>Charmander</item>
+        <item>Cyndaquil</item>
+        <item>Eevee</item>
+        <item>Pikachu</item>
+        <item>Snorlax</item>
+        <item>Squirtle</item>
+
+    </string-array>
     <string name="spinner_title">Selecione um tamanho de fonte</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

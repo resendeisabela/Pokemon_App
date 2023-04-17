@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(binding.getRoot());
         sview = findViewById(R.id.view1);
         spinner = findViewById(R.id.spinner);
-
-
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tamanhos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -97,25 +95,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.op_lightmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.white));
+            return true;
         }
+
         if (id == R.id.op_darkmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {

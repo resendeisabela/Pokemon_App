@@ -49,19 +49,24 @@ public class FirstFragment extends Fragment {
         binding.listImagens.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                // Get the selected item from the list
                 ItemListView selectedItem = itens.get(position);
 
-                // Create a bundle to pass the data to the second fragment
                 Bundle bundle = new Bundle();
                 bundle.putInt("image", selectedItem.getImage());
                 bundle.putString("name", selectedItem.getName());
 
-                // Navigate to the second fragment
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
             }
         });
+        binding.buttonGotoThirdFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_ThirdFragment);
+            }
+        });
+
 
     }
 
