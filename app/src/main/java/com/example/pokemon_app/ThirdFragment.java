@@ -30,43 +30,43 @@ public class ThirdFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Context context = getContext();
-        ArrayAdapter adapter=ArrayAdapter.createFromResource(getContext(),
+        ArrayAdapter adapter=ArrayAdapter.createFromResource(context,
                 R.array.pokemons, android.R.layout.simple_spinner_item);
         binding.spinnerPokemons.setAdapter(adapter);
-        binding.spinnerPokemons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.spinnerPokemons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                if(mediaPlayer!=null){
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (mediaPlayer != null) {
                     mediaPlayer.release();
                 }
-                switch (position){
+                switch (position) {
                     case 1:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.bulbasaur);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.bulbasaur);
                         break;
                     case 2:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.butterfree);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.butterfree);
                         break;
                     case 3:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.charmander);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.charmander);
                         break;
                     case 4:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.cyndaquil);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.cyndaquil);
                         break;
                     case 5:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.eevee);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.eevee);
                         break;
                     case 6:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.pikachu);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.pikachu);
                         break;
                     case 7:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.snorlax);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.snorlax);
                         break;
                     case 8:
-                        mediaPlayer=MediaPlayer.create(context,R.raw.squirtle);
+                        mediaPlayer = MediaPlayer.create(context, R.raw.squirtle);
                         break;
                 }
-                if(mediaPlayer!=null){
+                //}
+                if (mediaPlayer != null) {
                     mediaPlayer.start();
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -75,6 +75,11 @@ public class ThirdFragment extends Fragment {
                         }
                     });
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 

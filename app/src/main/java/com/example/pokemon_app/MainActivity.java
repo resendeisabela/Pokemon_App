@@ -122,14 +122,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (id == R.id.op_lightmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.white));
             listView.setBackgroundColor(getResources().getColor(R.color.white));
-            setAllTextColors(R.color.dark_grey1); //aqui
+            //setAllTextColors(getResources().getColor(R.color.black)); //aqui
             return true;
         }
 
         if (id == R.id.op_darkmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
             listView.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
-            setAllTextColors(R.color.white); //aqui
+            setAllTextColors(getResources().getColor(R.color.white)); //aqui
             return true;
         }
 
