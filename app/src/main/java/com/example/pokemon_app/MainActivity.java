@@ -32,6 +32,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private View sview;
     private Spinner spinner;
     private ListView listView;
+
+    private void setAllTextColors(int color) { //aqui
+        setViewTextColors(findViewById(android.R.id.content), color);
+    }
+
+    private void setViewTextColors(View view, int color) { //aqui
+        if (view instanceof TextView) {
+            ((TextView) view).setTextColor(color);
+        } else if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                setViewTextColors(viewGroup.getChildAt(i), color);
+            }
+        }
+    }
+
     private void setAllTextSizes(int size) {
         setViewTextSizes(findViewById(android.R.id.content), size);
     }
@@ -106,12 +122,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (id == R.id.op_lightmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.white));
             listView.setBackgroundColor(getResources().getColor(R.color.white));
+            setAllTextColors(R.color.dark_grey1); //aqui
             return true;
         }
 
         if (id == R.id.op_darkmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
             listView.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
+            setAllTextColors(R.color.white); //aqui
             return true;
         }
 
