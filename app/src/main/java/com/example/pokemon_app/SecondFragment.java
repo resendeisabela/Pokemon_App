@@ -4,14 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.pokemon_app.databinding.FragmentSecondBinding;
-
-import java.util.List;
 
 public class SecondFragment extends Fragment {
     private FragmentSecondBinding binding;
@@ -24,6 +22,7 @@ public class SecondFragment extends Fragment {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         Bundle args = getArguments();
+        View view = binding.getRoot();
 
         if (args != null) {
             String pokemonName = args.getString("name");
@@ -33,6 +32,23 @@ public class SecondFragment extends Fragment {
             binding.pokemonName.setText(pokemonName);
             binding.pokemonImage.setImageResource(imageResId);
             binding.tipoPokemon.setText(pokemonType);
+            // Obtenha a referência ao TextView
+            TextView textView = view.findViewById(R.id.tipoPokemon);
+
+            // Defina o background programaticamente de acordo com o valor do dado
+            if (pokemonType.equals("Grama")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_grama));
+            } else if (pokemonType.equals("Inseto")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_inseto));
+            } else if (pokemonType.equals("Fogo")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_fogo));
+            } else if (pokemonType.equals("Normal")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_normal));
+            } else if (pokemonType.equals("Elétrico")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_eletrico));
+            } else if (pokemonType.equals("Água")) {
+                textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_agua));
+            }
         }
 
         return binding.getRoot();

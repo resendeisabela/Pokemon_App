@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#00bcd4</color>
     <color name="dark_grey1">#272727</color>
+    <color name="label_background_fogo">#FF9F60</color>
+    <color name="label_background_agua">#59CDDC</color>
+    <color name="label_background_grama">#baffc9</color>
+    <color name="label_background_eletrico">#FFEF67</color>
+    <color name="label_background_inseto">#CC6EF7</color>
+    <color name="label_background_normal">#B39578</color>
 </resources>
