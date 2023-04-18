@@ -31,7 +31,7 @@ public class ThirdFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Context context = getContext();
         ArrayAdapter adapter=ArrayAdapter.createFromResource(context,
-                R.array.pokemons, android.R.layout.simple_spinner_item);
+                R.array.pokemons, R.layout.spinner_text);
         binding.spinnerPokemons.setAdapter(adapter);
         binding.spinnerPokemons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
