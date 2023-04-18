@@ -32,10 +32,9 @@ public class SecondFragment extends Fragment {
             binding.pokemonName.setText(pokemonName);
             binding.pokemonImage.setImageResource(imageResId);
             binding.tipoPokemon.setText(pokemonType);
-            // Obtenha a referência ao TextView
             TextView textView = view.findViewById(R.id.tipoPokemon);
 
-            // Defina o background programaticamente de acordo com o valor do dado
+
             if (pokemonType.equals("Grama")) {
                 textView.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.label_background_grama));
             } else if (pokemonType.equals("Inseto")) {

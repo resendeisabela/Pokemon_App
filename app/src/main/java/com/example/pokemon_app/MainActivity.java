@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner spinner;
     private ListView listView;
 
-    private void setAllTextColors(int color) { //aqui
+    private void setAllTextColors(int color) {
         setViewTextColors(findViewById(android.R.id.content), color);
     }
 
-    private void setViewTextColors(View view, int color) { //aqui
+    private void setViewTextColors(View view, int color) {
         if (view instanceof TextView) {
             ((TextView) view).setTextColor(color);
         } else if (view instanceof ViewGroup) {
@@ -106,12 +106,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        // Método necessário para a implementação da interface AdapterView.OnItemSelectedListener
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -122,14 +120,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (id == R.id.op_lightmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.white));
             listView.setBackgroundColor(getResources().getColor(R.color.white));
-            //setAllTextColors(getResources().getColor(R.color.black)); //aqui
             return true;
         }
 
         if (id == R.id.op_darkmode) {
             sview.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
             listView.setBackgroundColor(getResources().getColor(R.color.dark_grey1));
-            setAllTextColors(getResources().getColor(R.color.white)); //aqui
+            setAllTextColors(getResources().getColor(R.color.white));
             return true;
         }
 
