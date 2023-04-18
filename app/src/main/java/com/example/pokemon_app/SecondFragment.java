@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.pokemon_app.databinding.FragmentSecondBinding;
+
+import java.util.List;
+
 public class SecondFragment extends Fragment {
     private FragmentSecondBinding binding;
 
@@ -25,9 +28,11 @@ public class SecondFragment extends Fragment {
         if (args != null) {
             String pokemonName = args.getString("name");
             int imageResId = args.getInt("image");
+            String pokemonType = args.getString("type");
 
             binding.pokemonName.setText(pokemonName);
             binding.pokemonImage.setImageResource(imageResId);
+            binding.tipoPokemon.setText(pokemonType);
         }
 
         return binding.getRoot();

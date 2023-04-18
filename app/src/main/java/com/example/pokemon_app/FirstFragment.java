@@ -36,14 +36,14 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        itens.add(0, new ItemListView("Bulbassauro", R.drawable.bulbasaur));
-        itens.add(1, new ItemListView("Butterfree", R.drawable.butterfree));
-        itens.add(2, new ItemListView("Charmander", R.drawable.charmander));
-        itens.add(3, new ItemListView("Cyndaquil", R.drawable.cyndaquil));
-        itens.add(4, new ItemListView("Eevee", R.drawable.eevee));
-        itens.add(5, new ItemListView("Pikachu", R.drawable.pikachu));
-        itens.add(6, new ItemListView("Snorlax", R.drawable.snorlax));
-        itens.add(7, new ItemListView("Squirtle", R.drawable.squirtle));
+        itens.add(0, new ItemListView("Bulbassauro", R.drawable.bulbasaur, "Grama"));
+        itens.add(1, new ItemListView("Butterfree", R.drawable.butterfree, "Inseto"));
+        itens.add(2, new ItemListView("Charmander", R.drawable.charmander, "Fogo"));
+        itens.add(3, new ItemListView("Cyndaquil", R.drawable.cyndaquil, "Fogo"));
+        itens.add(4, new ItemListView("Eevee", R.drawable.eevee, "Normal"));
+        itens.add(5, new ItemListView("Pikachu", R.drawable.pikachu, "Elétrico"));
+        itens.add(6, new ItemListView("Snorlax", R.drawable.snorlax, "Normal"));
+        itens.add(7, new ItemListView("Squirtle", R.drawable.squirtle, "Água"));
 
         binding.listImagens.setAdapter(new AdapterListView(getContext(),itens));
         binding.listImagens.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -54,6 +54,7 @@ public class FirstFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("image", selectedItem.getImage());
                 bundle.putString("name", selectedItem.getName());
+                bundle.putString("type", selectedItem.getType());
 
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
